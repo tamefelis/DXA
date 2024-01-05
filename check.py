@@ -74,7 +74,7 @@ if uploaded_file is not None:
 
     # Streamlit download button section
     if os.path.exists(log_file):
-        st.subheader('Concise Log Contents:')
+        st.subheader('Log Contents:')
         with open(log_file, 'r') as file:
             log_content = file.read()
             st.text_area('Log', log_content, height=300)        
@@ -82,7 +82,7 @@ if uploaded_file is not None:
         # Write to buffer and download
         with open(log_file, 'rb') as file:
             st.download_button(
-                label="Download Concise Log File",
+                label="Download Log",
                 data=file,
                 file_name=log_file,
                 mime='text/plain'
