@@ -17,16 +17,7 @@ root_logger = logging.getLogger()
 root_logger.setLevel(logging.INFO)
 root_logger.addHandler(handler)
 
-def identify_double_entries(df):
-    # Composite key formed by 'DXA_subjID' and 'DXA_subVisit'
-    composite_key = ['DXA_subjID', 'DXA_subVisit']
 
-    # Identify duplicates based on the composite key
-    duplicates = df.duplicated(subset=composite_key, keep=False)
-
-    # Return DataFrame containing only duplicate entries
-    return df[duplicates]
-    
 def check_dexa_data(uploaded_file):
     # Read the CSV file directly from the uploaded file object
     df = pd.read_csv(uploaded_file)
